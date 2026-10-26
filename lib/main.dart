@@ -8,7 +8,7 @@ class AplicativoTurismo extends StatelessWidget {
   const AplicativoTurismo({super.key});
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Roteiro Baixada',
+        title: 'App Flutter - Roteiro Baixada',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
@@ -73,15 +73,15 @@ class _PrincipalState extends State<Principal> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 120,
           title: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Roteiro Baixada',
+                Text('App Flutter - Roteiro Baixada',
                     style: TextStyle(
                         fontFamily: 'Lora',
                         fontWeight: FontWeight.w600,
-                        fontSize: 27,
+                        fontSize: 24,
                         letterSpacing: -0.8,
                         color: Color(0xFF004F56))),
                 SizedBox(height: 4),

@@ -1,6 +1,6 @@
 {
-    "name": "roteiro_baixada",
-    "short_name": "roteiro_baixada",
+    "name": "App Flutter - Roteiro Baixada",
+    "short_name": "App Flutter - Roteiro Baixada",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
