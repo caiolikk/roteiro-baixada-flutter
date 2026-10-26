@@ -23,36 +23,74 @@ void main() {
     await tester.pumpWidget(const AplicativoTurismo());
     await tester.pumpAndSettle();
     expect(find.text(Principal.nomeAluno), findsOneWidget);
-    final favorito = find.byWidgetPredicate(
-      (w) => w is Checkbox && w.semanticLabel == 'Favorito: Museu do Café',
-    );
-    final visitado = find.byWidgetPredicate(
-      (w) => w is Checkbox && w.semanticLabel == 'Visitado: Museu do Café',
-    );
+    final favorito = find.byKey(const ValueKey('Favorito: Museu do Café'));
+    final visitado = find.byKey(const ValueKey('Visitado: Museu do Café'));
     await tester.ensureVisible(favorito);
     await tester.tap(favorito);
     await tester.pumpAndSettle();
-    expect(tester.widget<Checkbox>(favorito).value, true);
-    expect(tester.widget<Checkbox>(visitado).value, false);
+    expect(
+        tester
+            .widget<CartaoPontoTuristico>(
+                find.byType(CartaoPontoTuristico).first)
+            .ponto
+            .favorito,
+        true);
+    expect(
+        tester
+            .widget<CartaoPontoTuristico>(
+                find.byType(CartaoPontoTuristico).first)
+            .ponto
+            .visitado,
+        false);
     await tester.tap(visitado);
     await tester.pumpAndSettle();
-    expect(tester.widget<Checkbox>(visitado).value, true);
+    expect(
+        tester
+            .widget<CartaoPontoTuristico>(
+                find.byType(CartaoPontoTuristico).first)
+            .ponto
+            .visitado,
+        true);
     await tester.scrollUntilVisible(find.text('Praia da Enseada'), 400);
     await tester.pumpAndSettle();
     expect(find.text('Praia da Enseada'), findsOneWidget);
     await tester.scrollUntilVisible(find.text('Museu do Café'), -400);
     await tester.ensureVisible(favorito);
     await tester.pumpAndSettle();
-    expect(tester.widget<Checkbox>(favorito).value, true);
+    expect(
+        tester
+            .widget<CartaoPontoTuristico>(
+                find.byType(CartaoPontoTuristico).first)
+            .ponto
+            .favorito,
+        true);
     await tester.tap(favorito);
     await tester.pumpAndSettle();
-    expect(tester.widget<Checkbox>(favorito).value, false);
-    expect(tester.widget<Checkbox>(visitado).value, true);
+    expect(
+        tester
+            .widget<CartaoPontoTuristico>(
+                find.byType(CartaoPontoTuristico).first)
+            .ponto
+            .favorito,
+        false);
+    expect(
+        tester
+            .widget<CartaoPontoTuristico>(
+                find.byType(CartaoPontoTuristico).first)
+            .ponto
+            .visitado,
+        true);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpWidget(const AplicativoTurismo());
     await tester.pumpAndSettle();
     await tester.ensureVisible(visitado);
-    expect(tester.widget<Checkbox>(visitado).value, false);
+    expect(
+        tester
+            .widget<CartaoPontoTuristico>(
+                find.byType(CartaoPontoTuristico).first)
+            .ponto
+            .visitado,
+        false);
     expect(tester.takeException(), isNull);
   });
 }

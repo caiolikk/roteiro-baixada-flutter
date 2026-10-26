@@ -28,7 +28,7 @@ flutter build web
 - `assets/images/`: imagens usadas por Image.asset.
 - `test/widget_test.dart`: independência das marcações, rolagem e limpeza ao recriar a tela.
 
-Os cartões utilizam Row, Column, Container, Padding, SizedBox e dois Checkboxes. A classe Principal contém o nome do aluno, também mostrado na AppBar e no comentário inicial do código-fonte.
+Os cartões utilizam Row, Column, Container, Padding, SizedBox e dois botões de alternância: coração para favorito e círculo com verificação para visitado. A classe Principal contém o nome do aluno, também mostrado na AppBar e no comentário inicial do código-fonte.
 
 ## Fontes e créditos
 
@@ -43,19 +43,16 @@ Informações e fotografias consultadas em 26/10/2026 nos portais municipais. As
 
 Consulte os portais antes de visitar: horários e condições de abertura podem mudar.
 
-## Publicação no GitHub
+## Repositório e execução
 
-O repositório Git local contém os commits de desenvolvimento. Crie no seu GitHub um repositório vazio chamado `roteiro-baixada-flutter`, sem README inicial, e execute nesta pasta:
+Repositório: https://github.com/caiolikk/roteiro-baixada-flutter
 
-```sh
-git remote add origin https://github.com/caiolikk/roteiro-baixada-flutter.git
-git push -u origin main
-```
+A versão inicial foi publicada com três commits. Para enviar alterações locais já commitadas, use `git push`.
 
-Depois envie a URL no ambiente da disciplina antes do prazo. A criação do repositório remoto e o envio na plataforma da disciplina precisam ser confirmados; o histórico local, sozinho, não cumpre essa parte da entrega.
+A compilação web foi executada e a prévia local pode ser iniciada com `flutter run -d web-server`. Os testes automatizados ainda não tiveram resultado conclusivo neste ambiente.
 
-## Validação nesta máquina
+## Atualização visual
 
-Os arquivos Dart foram formatados e as dependências foram resolvidas usando o cache local. Foram escritos testes para as marcações e a rolagem, mas a execução do Flutter encerrou sem emitir resultado conclusivo. Portanto, os testes e a compilação **não estão confirmados**. Execute os comandos acima antes da entrega.
+Fotos quadradas (1:1), fonte Lora incluída com licença OFL e layout com uma coluna abaixo de 700 px, duas a partir de 700 px e três a partir de 1050 px. Favorito usa coração vazado/preenchido; Visitado usa círculo de verificação vazado/preenchido. As marcações continuam independentes e apenas em memória.
 
-O controle do navegador foi interrompido pela ferramenta porque ela não conseguiu verificar a URL com segurança. Nenhum repositório remoto foi criado e nenhuma URL foi enviada ao professor.
+Os ícones substituem os Checkboxes por solicitação posterior; essa versão diverge desse requisito do enunciado original.
